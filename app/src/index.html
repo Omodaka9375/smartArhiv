@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SmartArchive on ETH and IPFS</title>
+  </head>
+  <style>
+    input {
+      display: block;
+      margin-bottom: 12px;
+    }
+    ul {
+      list-style-type: none;
+    }
+    #menu {
+      display: block;
+      float: left;
+      position: relative;
+      width: 100%;
+      height: auto;
+      clear: both;
+    }
+    #author {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      font-size: smaller;
+    }
+    #nalog {
+      text-align: left;
+    }
+    #searchby {
+      display: block;
+      position: relative;
+      text-align: left;
+      float: left;
+      width: 100%;
+      height: auto;
+      clear: both;
+      padding-bottom: 20px;
+    }
+
+
+  </style>
+  <body>
+    <img src="https://i.postimg.cc/x1GHD3NY/arhiv.png" alt="Smart Arhiv"/>
+    <p id="nalog">Account connected: </p>
+    <hr>
+    <div id="mymenu">
+      <button onclick="App.showPregled()">List of records</button>
+      <button onclick="App.showUnos()">New Record</button>
+      <button onclick="App.showNadji()">Find record</button>
+      <button onclick="App.showSettings()">Options</button>
+  </div>
+  <hr>
+  
+    <div id="unos">
+      <h1>Enter new record in SmartArchive</h1>
+      
+      <label>Uploaded by:</label>
+      <input id="referent" type="text" value="" size="10" maxlenght=50>
+
+      <label>File name:</label>
+      <input id="predmet" type="text" value="" size="10" maxlenght=50>
+     
+     
+      <input id="fajl" type='file' value="reset" onchange="App.captureFile(this)">
+    <br>
+      <button onclick="App.addRecord()">Save</button>
+      <br><br>
+    </div>
+  
+    <div id="nadji">
+        <h1>Find records</h1>
+      <div id=searchby> 
+        <label>ID:</label>
+        <input id="ids" type="text" size="10" maxlenght=50>
+        <button onclick="App.findRecordByID()">Find by ID</button>
+      </div>
+      <hr>
+      <div id=searchby> 
+        <label>Uploaded by:</label>
+        <input id="referentM" type="text" value="" size="10" maxlenght=50>
+        <button onclick="App.findRecordByReferent()">Find by uploader</button>
+      </div>
+      <hr>
+      <div id=searchby> 
+        <label>File name:</label>
+        <input id="predmetM" type="text" value="" size="10" maxlenght=50>
+        <button onclick="App.findRecordByPredmet()">Find by file name</button>
+        
+      </div>
+      
+        <span id="rezultat">
+            <br>
+          <h2>Result</h2>
+          <p id="link"></p>
+          <p id="id__"></p>
+          <p id="referentl"></p>
+          <p id="predmetl"></p>
+          <p id="datum"></p>
+          <p id="fajl_"></p>
+          <p id="isvalid"></p>
+          <button onclick="App.invalidateRecord()">Invalidate record</button>
+
+        </span>
+        <br><br>
+      </div>
+    <div id="pregled">
+        <h1>List of records</h1>
+        <ul id="recordList"></ul>
+        <hr>   
+   
+    </div>
+
+    <div id="settings">
+      <h1>Options</h1>
+      <p><strong>SmartArchive contract address:</strong> <a href="https://etherscan.io/address/0x14a3E1c127bE785dc72c8440B504fd297fAcA616" target="_blank">0x14a3E1c127bE785dc72c8440B504fd297fAcA616</a></p>
+    </div>
+ 
+
+    <div id="status"></div>
+
+    <p id="author">branislav.djalic@gmail.com</p>
+    
+    <script src="index.js"></script>
+  </body>
+</html>
